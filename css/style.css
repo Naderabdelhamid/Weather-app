@@ -1,0 +1,330 @@
+/* Global   */
+
+body {
+  color: #bfc1c8;
+
+  font-family: "Roboto", "Open Sans", sans-serif;
+
+  font-size: 14px;
+
+  background: #1e202b;
+}
+
+a {
+  text-decoration: none;
+
+  color: #009ad8;
+}
+
+/*Header & */
+
+.site-header {
+  padding: 50px 0;
+}
+
+.main-nav__brand {
+  display: flex;
+
+  align-items: center;
+}
+
+.main-nav__logo-img {
+  margin-right: 10px;
+}
+
+.main-nav__title {
+  font-size: 1.14rem;
+
+  color: white;
+
+  margin-bottom: 5px;
+}
+
+.main-nav__description {
+  font-size: 0.71rem;
+
+  color: #bfc1c8;
+}
+
+.main-nav__link {
+  padding: 5px 25px !important;
+
+  border: 2px solid transparent;
+
+  border-radius: 30px;
+
+  color: white !important;
+
+  transition: 0.3s ease;
+
+  font-weight: 400;
+}
+
+.main-nav__link.active,
+.main-nav__link:hover {
+  border-color: #009ad8;
+
+  color: #009ad8 !important;
+}
+
+.navbar-toggler {
+  background: #009ad8;
+
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler-icon {
+  width: 1.2em;
+
+  height: 1.2em;
+}
+
+/* Hero Section  */
+
+.hero-section {
+  background-size: cover;
+
+  background-image: url(../images/banner.png);
+
+  padding: 70px 0;
+
+  min-height: 350px;
+}
+
+.location-finder {
+  position: relative;
+
+  margin-bottom: 70px;
+}
+
+.location-finder__input {
+  width: 100%;
+
+  padding: 20px 150px 20px 20px;
+
+  background: #1e202b;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 30px;
+
+  outline: none;
+}
+
+.location-finder__button {
+  position: absolute;
+
+  top: 5px;
+
+  right: 5px;
+
+  bottom: 5px;
+
+  padding: 0 40px;
+
+  background: #009ad8;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 30px;
+}
+
+/*  Forecast Section  */
+
+.forecast-section {
+  padding-bottom: 50px;
+}
+
+.forecast-grid {
+  display: flex;
+
+  background: #323544;
+
+  border-radius: 10px;
+
+  margin-top: -150px;
+
+  overflow: hidden;
+}
+
+.weather-card {
+  width: 100%;
+}
+
+.forecast-grid > .weather-card:nth-child(2) {
+  background-color: #262936;
+}
+
+.weather-card__header {
+  display: flex;
+
+  justify-content: space-between;
+
+  background: rgba(0, 0, 0, 0.1);
+
+  padding: 10px;
+
+  font-weight: 400;
+}
+
+.weather-card__content {
+  padding: 30px 20px;
+}
+
+.weather-card--today .weather-card__content {
+  text-align: left;
+}
+
+.weather-card:not(.weather-card--today) .weather-card__content {
+  text-align: center;
+
+  padding-top: 50px;
+}
+
+.weather-card__city {
+  font-size: 1.28rem;
+
+  font-weight: 400;
+}
+
+.weather-card__temp {
+  color: white;
+
+  font-weight: 700;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.weather-card__temp-value {
+  font-size: 6.42rem;
+
+  margin-right: 30px;
+}
+
+.weather-card__temp--daily {
+  font-size: 1.71rem;
+
+  color: white;
+
+  font-weight: 700;
+}
+
+.weather-card__icon--sm {
+  margin-bottom: 20px;
+}
+
+.weather-card__status {
+  color: #009ad8;
+
+  margin: 20px 0;
+}
+
+.weather-card__details span {
+  margin-right: 20px;
+}
+
+.weather-card__details span img {
+  margin-right: 5px;
+
+  vertical-align: middle;
+}
+
+/*  Footer  */
+
+.site-footer {
+  background: #262936;
+
+  padding: 50px 0;
+}
+
+.subscription-form {
+  position: relative;
+
+  margin-bottom: 30px;
+}
+
+.subscription-form__input {
+  padding: 20px 150px 20px 20px;
+
+  background: #1e202b;
+
+  width: 100%;
+
+  color: white;
+
+  border-radius: 30px;
+
+  border: none;
+
+  outline: none;
+}
+
+.subscription-form__button {
+  position: absolute;
+
+  right: 5px;
+
+  top: 5px;
+
+  bottom: 5px;
+
+  background: #009ad8;
+
+  color: white;
+
+  border-radius: 30px;
+
+  border: none;
+
+  padding: 10px 40px;
+}
+
+.social-links__icon {
+  width: 40px;
+
+  height: 40px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1e202b;
+
+  color: #009ad8;
+
+  transition: 0.3s ease;
+
+  font-size: 20px;
+
+  margin-right: 5px;
+}
+
+.social-links__icon:hover {
+  background: #009ad8;
+
+  color: white;
+}
+
+.site-footer__copyright {
+  margin-top: 20px;
+
+  color: #bfc1c8;
+}
+
+/*Responsive Adjustments */
+
+@media (max-width: 991.98px) {
+  .forecast-grid {
+    flex-direction: column;
+  }
+}
