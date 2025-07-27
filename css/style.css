@@ -15,7 +15,7 @@ a {
 
   color: #009ad8;
 }
-/*Header & */
+/*Header & Nav */
 
 .site-header {
   padding: 50px 0;
@@ -1829,63 +1829,6 @@ a {
   font-weight: 500;
 }
 
-/* Footer Styles */
-.site-footer {
-  background: #262936;
-  padding: 50px 0;
-}
-
-.subscription-form {
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.subscription-form__input {
-  padding: 20px 150px 20px 20px;
-  background: #1e202b;
-  width: 100%;
-  color: white;
-  border-radius: 30px;
-  border: none;
-  outline: none;
-}
-
-.subscription-form__button {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  bottom: 5px;
-  background: #009ad8;
-  color: white;
-  border-radius: 30px;
-  border: none;
-  padding: 10px 40px;
-}
-
-.social-links__icon {
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #1e202b;
-  color: #009ad8;
-  transition: 0.3s ease;
-  font-size: 20px;
-  margin-right: 5px;
-}
-
-.social-links__icon:hover {
-  background: #009ad8;
-  color: white;
-}
-
-.site-footer__copyright {
-  margin-top: 20px;
-  color: #bfc1c8;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .photos-grid {
@@ -1945,6 +1888,3 @@ a {
     transform: rotate(360deg);
   }
 }
-/* 
-
-       */

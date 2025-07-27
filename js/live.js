@@ -1,6 +1,3 @@
-// Live Cameras Page JavaScript - cameras.js
-
-// Sample cameras data
 const camerasData = [
   {
     id: 1,
@@ -72,16 +69,13 @@ const camerasData = [
 
 let currentLocationFilter = "all";
 
-// DOM Elements
 const camerasGrid = document.getElementById("camerasGrid");
 const locationButtons = document.querySelectorAll(".location-btn");
 
-// Initialize page
 document.addEventListener("DOMContentLoaded", function () {
   displayCameras();
 });
 
-// Display cameras function
 function displayCameras() {
   const filteredCameras =
     currentLocationFilter === "all"
@@ -162,17 +156,13 @@ function displayCameras() {
     .join("");
 }
 
-// Filter functionality
 locationButtons.forEach((button) => {
   button.addEventListener("click", function () {
-    // Update active button
     locationButtons.forEach((btn) => btn.classList.remove("active"));
     this.classList.add("active");
 
-    // Update filter
     currentLocationFilter = this.dataset.location;
 
-    // Update display with animation
     camerasGrid.style.opacity = "0.5";
     setTimeout(() => {
       displayCameras();
@@ -181,7 +171,6 @@ locationButtons.forEach((button) => {
   });
 });
 
-// Camera controls functionality
 camerasGrid.addEventListener("click", function (e) {
   if (e.target.classList.contains("control-btn") && !e.target.disabled) {
     const card = e.target.closest(".camera-card");
@@ -190,7 +179,6 @@ camerasGrid.addEventListener("click", function (e) {
       card.querySelector(".camera-card__title").textContent
     );
 
-    // Add click effect
     e.target.style.transform = "scale(0.95)";
     setTimeout(() => {
       e.target.style.transform = "";
@@ -209,9 +197,7 @@ camerasGrid.addEventListener("click", function (e) {
   }
 });
 
-// Auto-refresh camera data every 30 seconds
 setInterval(() => {
-  // Update last update times
   const updateElements = document.querySelectorAll(".info-value");
   updateElements.forEach((element, index) => {
     if (element.textContent.includes("min ago")) {
@@ -221,7 +207,6 @@ setInterval(() => {
   });
 }, 30000);
 
-// Smooth animations for camera cards
 function addScrollAnimation() {
   const cards = document.querySelectorAll(".camera-card");
   const observer = new IntersectionObserver((entries) => {
@@ -243,10 +228,8 @@ function addScrollAnimation() {
   });
 }
 
-// Call animation function after content loads
 setTimeout(addScrollAnimation, 100);
 
-// Weather API Integration Function (optional)
 async function getWeatherForCamera(location) {
   const API_KEY = "7d77b96c972b4d119a3151101212704";
   try {
@@ -269,7 +252,6 @@ async function getWeatherForCamera(location) {
   return null;
 }
 
-// Function to update camera data with real weather data
 async function updateCameraWeatherData() {
   for (let camera of camerasData) {
     if (camera.status === "online") {
@@ -285,6 +267,3 @@ async function updateCameraWeatherData() {
   }
   displayCameras();
 }
-
-// Uncomment the line below to enable real weather data updates
-// updateCameraWeatherData();

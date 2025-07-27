@@ -1,6 +1,3 @@
-// News Page JavaScript - news.js
-
-// Sample news data
 const newsData = [
   {
     id: 1,
@@ -87,13 +84,11 @@ const newsData = [
 let displayedNews = 6;
 let currentFilter = "all";
 
-// DOM Elements
 const newsGrid = document.getElementById("newsGrid");
 const loadMoreBtn = document.getElementById("loadMoreBtn");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const loadingSpinner = document.getElementById("loadingSpinner");
 
-// Initialize page
 document.addEventListener("DOMContentLoaded", function () {
   setTimeout(() => {
     loadingSpinner.style.display = "none";
@@ -101,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 });
 
-// Display news function
 function displayNews() {
   const filteredNews =
     currentFilter === "all"
@@ -137,23 +131,18 @@ function displayNews() {
     )
     .join("");
 
-  // Show/hide load more button
   loadMoreBtn.style.display =
     newsToShow.length >= filteredNews.length ? "none" : "block";
 }
 
-// Filter functionality
 filterButtons.forEach((button) => {
   button.addEventListener("click", function () {
-    // Update active button
     filterButtons.forEach((btn) => btn.classList.remove("active"));
     this.classList.add("active");
 
-    // Update filter and reset display count
     currentFilter = this.dataset.category;
     displayedNews = 6;
 
-    // Show loading and update display
     newsGrid.innerHTML =
       '<div class="loading"><div class="spinner"></div></div>';
     setTimeout(() => {
@@ -162,28 +151,23 @@ filterButtons.forEach((button) => {
   });
 });
 
-// Load more functionality
 loadMoreBtn.addEventListener("click", function () {
   displayedNews += 6;
   displayNews();
 });
 
-// News card click functionality
 newsGrid.addEventListener("click", function (e) {
   const newsCard = e.target.closest(".news-card");
   if (newsCard) {
-    // Add click animation
     newsCard.style.transform = "scale(0.98)";
     setTimeout(() => {
       newsCard.style.transform = "";
     }, 150);
 
-    // Here you could add navigation to full article
     console.log("News card clicked:", newsCard.dataset.category);
   }
 });
 
-// Smooth animations
 function addScrollAnimation() {
   const cards = document.querySelectorAll(".news-card");
   const observer = new IntersectionObserver((entries) => {
@@ -203,5 +187,4 @@ function addScrollAnimation() {
   });
 }
 
-// Call animation function after content loads
 setTimeout(addScrollAnimation, 1100);

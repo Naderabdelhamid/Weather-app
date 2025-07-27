@@ -161,7 +161,6 @@ if (document.querySelector(".photos-section")) {
   const closeModal = document.getElementById("closeModal");
   const uploadBtn = document.querySelector(".upload-btn");
 
-  // Initialize Photos Page
   function initializePhotosPage() {
     displayPhotos();
     setupModalEvents();
@@ -170,7 +169,6 @@ if (document.querySelector(".photos-section")) {
     addScrollAnimation();
   }
 
-  // Display photos function
   function displayPhotos() {
     const filteredPhotos =
       currentFilter === "all"
@@ -210,18 +208,14 @@ if (document.querySelector(".photos-section")) {
     }
   }
 
-  // Setup filter events
   function setupFilterEvents() {
     filterButtons.forEach((button) => {
       button.addEventListener("click", function () {
-        // Update active button
         filterButtons.forEach((btn) => btn.classList.remove("active"));
         this.classList.add("active");
 
-        // Update filter
         currentFilter = this.dataset.category;
 
-        // Update display with animation
         if (photosGrid) {
           photosGrid.style.opacity = "0.5";
           setTimeout(() => {
@@ -234,11 +228,9 @@ if (document.querySelector(".photos-section")) {
     });
   }
 
-  // Modal functionality
   function setupModalEvents() {
     if (!photoModal) return;
 
-    // Open modal when photo is clicked
     if (photosGrid) {
       photosGrid.addEventListener("click", function (e) {
         const photoCard = e.target.closest(".photo-card");
@@ -253,7 +245,6 @@ if (document.querySelector(".photos-section")) {
       });
     }
 
-    // Close modal events
     if (closeModal) {
       closeModal.addEventListener("click", hidePhotoModal);
     }
@@ -264,7 +255,6 @@ if (document.querySelector(".photos-section")) {
       }
     });
 
-    // Close modal with Escape key
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && photoModal.style.display === "block") {
         hidePhotoModal();
@@ -308,7 +298,6 @@ if (document.querySelector(".photos-section")) {
     photoModal.style.display = "block";
     document.body.style.overflow = "hidden";
 
-    // Add fade-in animation
     setTimeout(() => {
       photoModal.style.opacity = "1";
     }, 10);
@@ -324,17 +313,14 @@ if (document.querySelector(".photos-section")) {
     }, 300);
   }
 
-  // Upload button functionality
   function setupUploadEvent() {
     if (uploadBtn) {
       uploadBtn.addEventListener("click", function () {
-        // Add click animation
         this.style.transform = "scale(0.95)";
         setTimeout(() => {
           this.style.transform = "";
         }, 150);
 
-        // Show upload dialog (simulation)
         showUploadDialog();
       });
     }
@@ -346,7 +332,6 @@ if (document.querySelector(".photos-section")) {
     );
 
     if (confirmed) {
-      // Simulate adding a new photo
       const newPhoto = {
         id: photosData.length + 1,
         title: "User Uploaded Photo",
@@ -366,14 +351,12 @@ if (document.querySelector(".photos-section")) {
       displayPhotos();
       addScrollAnimation();
 
-      // Show success message
       setTimeout(() => {
         alert("Photo uploaded successfully! (This is a simulation)");
       }, 500);
     }
   }
 
-  // Weather API Integration Function (for future use)
   async function getWeatherForPhoto(location) {
     const API_KEY = "7d77b96c972b4d119a3151101212704";
     try {
@@ -396,11 +379,9 @@ if (document.querySelector(".photos-section")) {
     return null;
   }
 
-  // Smooth animations for photo cards
   function addScrollAnimation() {
     const cards = document.querySelectorAll(".photo-card");
 
-    // Remove existing observer if any
     if (window.photosObserver) {
       window.photosObserver.disconnect();
     }
@@ -429,7 +410,6 @@ if (document.querySelector(".photos-section")) {
     });
   }
 
-  // Add hover effects for photo cards
   function addHoverEffects() {
     if (photosGrid) {
       photosGrid.addEventListener(
@@ -456,7 +436,6 @@ if (document.querySelector(".photos-section")) {
     }
   }
 
-  // Lazy loading for better performance
   function setupLazyLoading() {
     const photoCards = document.querySelectorAll(".photo-card");
 
@@ -484,7 +463,6 @@ if (document.querySelector(".photos-section")) {
     });
   }
 
-  // Search functionality (bonus feature)
   function setupSearchFeature() {
     const searchInput = document.createElement("input");
     searchInput.type = "text";
@@ -502,7 +480,6 @@ if (document.querySelector(".photos-section")) {
       transition: 0.3s ease;
     `;
 
-    // Add search input after filters
     const filtersContainer = document.querySelector(".photo-filters");
     if (filtersContainer) {
       filtersContainer.parentNode.insertBefore(
@@ -511,7 +488,6 @@ if (document.querySelector(".photos-section")) {
       );
     }
 
-    // Search functionality
     let searchTimeout;
     searchInput.addEventListener("input", function (e) {
       clearTimeout(searchTimeout);
@@ -578,7 +554,6 @@ if (document.querySelector(".photos-section")) {
     }
   }
 
-  // Initialize everything when DOM is loaded
   document.addEventListener("DOMContentLoaded", function () {
     initializePhotosPage();
     addHoverEffects();
@@ -586,7 +561,6 @@ if (document.querySelector(".photos-section")) {
     setupSearchFeature();
   });
 
-  // Clean up observers when page is unloaded
   window.addEventListener("beforeunload", function () {
     if (window.photosObserver) {
       window.photosObserver.disconnect();
