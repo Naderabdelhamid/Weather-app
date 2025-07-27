@@ -14,11 +14,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Contact Us</title>
+    <title>Photos</title>
   </head>
   <body>
     <!-- header -->
-    <header class="site-header shadow shadow-sm">
+    <header class="site-header">
       <div class="container">
         <nav class="main-nav navbar navbar-expand-lg p-0">
           <a class="main-nav__brand navbar-brand" href="#">
@@ -59,42 +59,113 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="main-nav__link nav-link" href="photos.html">Photos</a>
+                <a class="main-nav__link nav-link active" href="photos.html"
+                  >Photos</a
+                >
               </li>
               <li class="nav-item">
-                <a class="main-nav__link nav-link active" href="#">Contact</a>
+                <a class="main-nav__link nav-link" href="contact.html"
+                  >Contact</a
+                >
               </li>
             </ul>
           </div>
         </nav>
       </div>
     </header>
-    <section id="contact">
-      <div class="container shadow p-5">
-        <h1>Contact Us</h1>
-        <form action="#" method="post" class="form-group">
-          <div class="mb-3">
-            <label for="name" class="form-label">Name : </label>
-            <input type="text" class="form-control" id="name" required />
+    <section id="photo" class="photos-section">
+      <div class="container">
+        <!-- Photos Header -->
+        <div class="photos-header">
+          <h1>Weather Photo Gallery</h1>
+          <p>
+            Explore stunning weather phenomena and atmospheric conditions from
+            around the region
+          </p>
+        </div>
+
+        <!-- Photo Filters -->
+        <div class="photo-filters">
+          <button class="filter-btn active" data-category="all">
+            All Photos
+          </button>
+          <button class="filter-btn" data-category="clouds">Clouds</button>
+          <button class="filter-btn" data-category="storms">Storms</button>
+          <button class="filter-btn" data-category="sunset">Sunsets</button>
+          <button class="filter-btn" data-category="rain">Rain</button>
+          <button class="filter-btn" data-category="snow">Snow</button>
+        </div>
+
+        <!-- Featured Photo -->
+        <div class="featured-photo">
+          <div class="featured-photo-card">
+            <div class="featured-photo__image">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="featured-photo__content">
+              <span class="featured-photo__category">Photo of the Day</span>
+              <h2 class="featured-photo__title">
+                Lightning Storm Over the City
+              </h2>
+              <p class="featured-photo__description">
+                A spectacular lightning display illuminates the night sky during
+                yesterday's thunderstorm. This incredible shot captures the raw
+                power and beauty of nature's electric show.
+              </p>
+              <div class="featured-photo__stats">
+                <div class="stat-item">
+                  <span class="stat-value">1.2K</span>
+                  <div class="stat-label">Views</div>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">45</span>
+                  <div class="stat-label">Likes</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email : </label>
-            <input type="email" class="form-control" id="email" required />
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Message : </label>
-            <textarea
-              class="form-control"
-              id="message"
-              rows="4"
-              required
-            ></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary w-25">Submit</button>
-        </form>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+          <h3>Share Your Weather Photos</h3>
+          <p>
+            Captured an amazing weather moment? Share it with our community!
+          </p>
+          <button class="upload-btn">
+            <i class="fas fa-cloud-upload-alt"></i>
+            Upload Photo
+          </button>
+        </div>
+
+        <!-- Photos Grid -->
+        <div class="photos-grid" id="photosGrid">
+          <!-- Photos will be populated by JavaScript -->
+        </div>
       </div>
     </section>
-    <!-- footer -->
+
+    <!-- Photo Modal -->
+    <div class="photo-modal" id="photoModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modalTitle">Photo Title</h3>
+          <button class="close-btn" id="closeModal">&times;</button>
+        </div>
+        <div class="modal-image">
+          <i class="fas fa-image"></i>
+        </div>
+        <div class="modal-info">
+          <p class="modal-description" id="modalDescription">
+            Photo description goes here...
+          </p>
+          <div class="modal-meta" id="modalMeta">
+            <!-- Meta information will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="site-footer">
       <div class="container">
         <div class="row align-items-center">
@@ -136,6 +207,7 @@
     </footer>
 
     <script src="js/all.min.js"></script>
+    <script src="js/photos.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
